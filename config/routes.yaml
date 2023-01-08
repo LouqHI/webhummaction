@@ -5,9 +5,9 @@ controllers:
     type: attribute
 
 home_index:
-    path: /
+    path: /app/
     controller: App\Controller\HomeController::homeIndex
 
 home_deux_index:
-    path: /deux
+    path: /app/deux
     controller: App\Controller\HomeController::homeDeuxIndex
