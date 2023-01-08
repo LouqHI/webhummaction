@@ -3,3 +3,5 @@ build:
 
 deploy:
   - "php bin/console cache:clear --env=prod --no-debug"
+  - "php bin/console assets:install --env=prod --no-debug"
+  - "php bin/console assets:build --env=prod --no-debug"
