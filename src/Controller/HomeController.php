@@ -10,17 +10,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     
+    // Les deux fonctions renvoient désormait un JSON.
     public function homeIndex()
-    {
-        // replace this example code with whatever you need
-        return $this->render("views\homeIndex.html.twig", array("home" => "1"));
+    {   
+        $user = array("id" => "1", "name" => "user 1");
+        return $this->JSON($user);
     }
 
     public function homeDeuxIndex()
     {
-        // replace this example code with whatever you need
-        $user = array("id" => "1", "name" => "me");
-        return $this->render("views\homeIndex.html.twig", array("home" => "2", "user" => $user));
+        $user = array("id" => "2", "name" => "user 2");
+        return $this->JSON($user);
     }
 
 
