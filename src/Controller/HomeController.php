@@ -5,7 +5,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
@@ -14,13 +13,13 @@ class HomeController extends AbstractController
     public function homeIndex()
     {   
         $user = array("id" => "1", "name" => "user 1");
-        return $this->JSON($user);
+        return $this->JSONResponse($user);
     }
 
     public function homeDeuxIndex()
     {
         $user = array("id" => "2", "name" => "user 2");
-        return $this->JSON($user);
+        return $this->JSONResponse($user);
     }
 
 
