@@ -20,7 +20,10 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('app', '.assets/app.js')
+    // Ajout d'un point d'entrée, il peut en être déclaré plusieurs
+    .addEntry('app', './assets/app.js')
+    // Activation de Vue.js
+    .enableVueLoader()
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -40,7 +43,7 @@ Encore
      * https://symfony.com/doc/current/frontend.html#adding-more-features
      */
     .cleanupOutputBeforeBuild()
-    //.enableBuildNotifications()
+    .enableBuildNotifications()
     .enableSourceMaps(!Encore.isProduction())
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
@@ -48,6 +51,10 @@ Encore
     // configure Babel
     // .configureBabel((config) => {
     //     config.plugins.push('@babel/a-babel-plugin');
+    // })
+    // .configureBabelPresetEnv((config) => {
+    //     config.useBuiltIns = 'usage';
+    //     config.corejs = 3;
     // })
 
     // enables and configure @babel/preset-env polyfills
@@ -60,8 +67,8 @@ Encore
     //.enableSassLoader()
 
     // uncomment if you use TypeScript
-    .enableTypeScriptLoader()
-    .enableVueLoader(() => { }, { runtimeCompilerBuild: false })
+    //.enableTypeScriptLoader()
+
 
     // uncomment if you use React
     //.enableReactPreset()

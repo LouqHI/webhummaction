@@ -4,12 +4,20 @@
  * We recommend including the built version of this JavaScript file
  * (and its CSS file) in your base layout (base.html.twig).
  */
-import { createApp } from 'vue';
-import App from '../front/src/App.vue';
 
-createApp(App).mount('#vue-app');
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/app.css';
 
 // start the Stimulus application
-import './bootstrap';
+// import './bootstrap';
+console.log("Allez Brad !")
+
+import { createApp } from 'vue'
+createApp({
+
+    data() {
+        return {
+            message: 'Hello Vue!'
+        }
+    }
+}).mount('#app')

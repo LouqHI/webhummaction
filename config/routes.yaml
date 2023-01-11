@@ -1,20 +1,3 @@
 controllers:
-  resource:
-    path: ../src/Controller/
-    namespace: App\Controller
-  type: attribute
-
-#Appel de l'app vue
-app:
-  path: /{slug?}
-  controller: App\Controller\HomeController::app
-  requirements:
-    slug: .+
-# Les deux URL renvoi maintenant un JSON ne pas oublier de bien créer la home page sur Vue, le back ne va plus servir la Home page.
-home_index:
-  path: /api/user1
-  controller: App\Controller\HomeController::homeIndex
-
-home_deux_index:
-  path: /api/user2
-  controller: App\Controller\HomeController::homeDeuxIndex
+    resource: ../src/Controller/
+    type: attribute
