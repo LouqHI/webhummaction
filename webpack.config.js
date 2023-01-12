@@ -5,6 +5,7 @@ const Encore = require('@symfony/webpack-encore');
 if (!Encore.isRuntimeEnvironmentConfigured()) {
     Encore.configureRuntimeEnvironment(process.env.NODE_ENV || 'dev');
 }
+const path = require('path');
 
 Encore
     // directory where compiled assets will be stored
@@ -21,9 +22,11 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     // Ajout d'un point d'entrée, il peut en être déclaré plusieurs
-    .addEntry('app', './assets/app.js')
+    // .addEntry('app', './assets/app.js')
+    .addEntry('app', './assets/main.js')
     // Activation de Vue.js
-    .enableVueLoader()
+    .enableVueLoader(() => { }, { runtimeCompilerBuild: false })
+    // .enableVueLoader(() => { }, { useJsx: true })
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')
@@ -64,7 +67,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
@@ -79,6 +82,19 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-    ;
+
+    .configureDevServerOptions(options => {
+        options.server = {
+            type: 'https',
+            options: {
+                key: '/path/to/server.key',
+                cert: '/path/to/server.crt',
+                allowedHosts: 'all',
+                pfx: path.join(process.env.HOME, '.symfony5/certs/default.p12')
+            },
+        }
+    });
+
+
 
 module.exports = Encore.getWebpackConfig();
