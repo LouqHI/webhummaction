@@ -10,3 +10,13 @@ import './styles/app.css';
 
 // start the Stimulus application
 import './bootstrap';
+import { createApp } from 'vue';
+import Example from '@/Example.vue';
+
+const app = createApp({
+    components: {
+        Example
+    }
+});
+
+app.mount("#app");
