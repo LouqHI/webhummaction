@@ -5,7 +5,12 @@
   </template>
   
   <script>
+  import axios from 'axios'
   export default {
     name: "Example",
+    mounted(){
+      axios.get('/api/user1').then((response)=>{console.log(response.data)})
+    }
   }
+  
   </script>
