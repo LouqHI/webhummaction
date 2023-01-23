@@ -6,9 +6,9 @@ controllers:
 
 # Les deux URL renvoi maintenant un JSON ne pas oublier de bien créer la home page sur Vue, le back ne va plus servir la Home page. 
 home_index:
-    path: /user1
+    path: /api/user1
     controller: App\Controller\HomeController::homeIndex
 
 home_deux_index:
-    path: /user2
+    path: /api/user2
     controller: App\Controller\HomeController::homeDeuxIndex
